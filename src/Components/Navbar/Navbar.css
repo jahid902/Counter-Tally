@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f0f0f0;
+  padding: 10px 30px;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: green;
+}
+
+.navlinks button {
+  margin-left: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.navlinks button:hover {
+  color: slategray;
+}
