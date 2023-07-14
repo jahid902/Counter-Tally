@@ -1,24 +1,23 @@
 import { useRef, useState } from "react";
-import "./Counter.css";
-import CloneCounter from "../CloneCounter/CloneCounter";
+import "./CloneCounter.css";
 
-const Counter = () => {
+const CloneCounter = () => {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("Tally Counter");
   const [show, setShow] = useState(false);
-  const [add, setAdd] = useState(false);
+  const [visibility, setVisibility] = useState(true);
   const [nameShow, setNameShow] = useState(false);
   const inputRef = useRef(null);
   const inputName = useRef(null);
 
-  const countChange = () => {
+  const changeCount = () => {
     setShow(!show);
     const inputValue = inputRef.current.value;
     const value = parseInt(inputValue);
     setCount(value);
   };
 
-  const nameChange = () => {
+  const changeName = () => {
     setNameShow(!nameShow)
     const inputText = inputName.current.value;
     setName(inputText);
@@ -26,8 +25,8 @@ const Counter = () => {
   }
 
   return (
-    <div id="main-container">
-    <div className="counter">
+    <>
+    {visibility && <div className="counter">
       <h2 className="counter-name">{name}</h2>
       <div className="input-container">
         <label htmlFor="counter-input"></label>
@@ -50,22 +49,21 @@ const Counter = () => {
         </button>
         <div className="buttons-container">
           <input  hidden={show ? false : true} ref={inputRef} type="number" id="new-value-input" />
-          <button onClick={() => countChange()} hidden={show ? false : true} className="button">Set</button>
+          <button onClick={() => changeCount()} hidden={show ? false : true} className="button">Set</button>
         </div>
         <button onClick={() => setNameShow(!nameShow)} id="counter-name-btn">Change Counter Name</button>
       
       <div className="input-container">
       <div className="buttons-container">
         <input hidden={nameShow ? false : true} ref={inputName} type="text"  id="new-value-input" />
-        <button onClick={() => nameChange()} hidden={nameShow ? false : true} className="button">Set</button>
+        <button onClick={() => changeName()} hidden={nameShow ? false : true} className="button">Set</button>
       </div>
       </div>
+      <button onClick={()=> setVisibility(false)} className="button">Remove</button>
       </div>
-      <button onClick={()=> setAdd(!add)} className="button">Add</button>
-    </div>
-    {add && <CloneCounter></CloneCounter>}
-    </div>
+    </div>}
+    </>
   );
 };
 
-export default Counter;
+export default CloneCounter;

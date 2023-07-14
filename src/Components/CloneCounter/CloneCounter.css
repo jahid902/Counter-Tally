@@ -1,10 +1,3 @@
-#main-container{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-
 .counter {
     max-width: 400px;
     margin: 30px auto;
