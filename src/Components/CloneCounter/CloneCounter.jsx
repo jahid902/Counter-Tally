@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import "./CloneCounter.css";
 
-const CloneCounter = () => {
+const CloneCounter = ({setAdd}) => {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("Tally Counter");
   const [show, setShow] = useState(false);
@@ -22,6 +22,11 @@ const CloneCounter = () => {
     const inputText = inputName.current.value;
     setName(inputText);
     
+  }
+
+  const toggle = () => {
+    setVisibility(false)
+    setAdd(false)
   }
 
   return (
@@ -59,7 +64,7 @@ const CloneCounter = () => {
         <button onClick={() => changeName()} hidden={nameShow ? false : true} className="button">Set</button>
       </div>
       </div>
-      <button onClick={()=> setVisibility(false)} className="button">Remove</button>
+      <button onClick={()=> toggle()} className="button">Remove</button>
       </div>
     </div>}
     </>

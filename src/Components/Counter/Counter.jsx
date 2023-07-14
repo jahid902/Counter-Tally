@@ -61,9 +61,11 @@ const Counter = () => {
       </div>
       </div>
       </div>
-      <button onClick={()=> setAdd(!add)} className="button">Add</button>
+      <button disabled={add === true} onClick={()=> setAdd(!add)} className="button-2">Add</button>
     </div>
-    {add && <CloneCounter></CloneCounter>}
+    {
+      add && <CloneCounter setAdd={setAdd}></CloneCounter>
+    }
     </div>
   );
 };
